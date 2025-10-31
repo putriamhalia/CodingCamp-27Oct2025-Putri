@@ -2,55 +2,100 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Todo List - Putri</title>
 
   <!-- CSS External file -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-orange-100 transition-colors duration-500">
+<body class="bg-orange-100 transition-colors duration-500 font-sans">
 
-  <!-- Header Content -->
+  <!-- Header -->
   <header class="text-center my-6">
     <h1 class="text-3xl font-bold">Todo List - Putri</h1>
   </header>
 
-  <!-- Main Content -->
-  <main class="max-w-md mx-auto p-4 bg-orange-50 rounded-xl shadow-md">
-    <!-- Form Section -->
-    <section>
-      <form class="flex gap-4 mb-4 justify-center">
-        <!-- Todo Input -->
-        <input class="border p-2 rounded w-2/3" type="text" id="todo-input" placeholder="Enter a new todo item">
+  <!-- Main Container -->
+  <main class="max-w-md mx-auto p-6 bg-orange-50 rounded-2xl shadow-lg">
 
-        <!-- Date Input -->
-        <input class="border p-2 rounded w-1/3" type="date" id="todo-date">
-      </form>
+    <!-- Input Section -->
+    <section class="mb-4">
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <input
+          class="border p-2 rounded w-full sm:w-2/3 focus:outline-none focus:ring-2 focus:ring-blue-300"
+          type="text"
+          id="todo-input"
+          placeholder="Enter a new todo item"
+        />
 
-      <!-- Buttons Section -->
-      <div class="flex flex-wrap justify-center gap-3">
-        <button class="border p-2 rounded bg-green-500 text-white hover:bg-green-600" type="button" onclick="addTodo()">Add Todo</button>
-        <button class="border p-2 rounded bg-red-500 text-white hover:bg-red-600" type="button" onclick="clearAllTodos()">Clear All Todos</button>
-        <button class="border p-2 rounded bg-yellow-500 text-white hover:bg-yellow-600" type="button" onclick="filterTodos()">Filter Todos</button>
-        <button class="border p-2 rounded bg-blue-400 text-white hover:bg-blue-500" type="button" onclick="changeBackgroundColor()">Change Background</button>
+        <input
+          class="border p-2 rounded w-full sm:w-1/3 focus:outline-none focus:ring-2 focus:ring-blue-300"
+          type="date"
+          id="todo-date"
+        />
       </div>
+    </section>
+
+    <!-- Button Section -->
+    <section class="flex flex-wrap justify-center gap-3 my-4">
+      <button
+        class="border p-2 rounded bg-green-500 text-white hover:bg-green-600"
+        type="button"
+        onclick="addTodo()"
+      >
+        Add Todo
+      </button>
+
+      <button
+        class="border p-2 rounded bg-red-500 text-white hover:bg-red-600"
+        type="button"
+        onclick="clearAllTodos()"
+      >
+        Clear All Todos
+      </button>
+
+      <button
+        class="border p-2 rounded bg-yellow-500 text-white hover:bg-yellow-600"
+        type="button"
+        onclick="filterTodos()"
+      >
+        Filter Todos
+      </button>
+
+      <!-- Tombol Reset Filter -->
+      <button
+        id="reset-filter-btn"
+        class="border p-2 rounded bg-gray-500 text-white hover:bg-gray-600 hidden"
+        type="button"
+        onclick="resetFilter()"
+      >
+        Reset Filter
+      </button>
+
+      <button
+        class="border p-2 rounded bg-blue-400 text-white hover:bg-blue-500"
+        type="button"
+        onclick="changeBackgroundColor()"
+      >
+        Change Background
+      </button>
     </section>
 
     <!-- Todo List Section -->
     <section class="mt-6">
       <ul id="todo-list" class="space-y-2 text-center">
-        <li>No todos available</li>
+        <li class="text-gray-500">No todos available</li>
       </ul>
     </section>
   </main>
 
-  <!-- Footer Content -->
-  <footer class="text-center text-gray-500 mt-6">
+  <!-- Footer -->
+  <footer class="text-center text-gray-500 mt-6 mb-4">
     <p>&copy; 2025 Todo List Website - Putri</p>
   </footer>
 
